@@ -129,20 +129,16 @@ jobs:
           pushd ./packages/${{ inputs.package }}
           npm version ${{ inputs.custom_version }}
 
-          # Update changelog
-          npx conventional-changelog -p angular -i ./packages/${{ inputs.package }}/CHANGELOG.md -s
-
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
         run: |
           pushd ./packages/${{ inputs.package }}
           npm version ${{ inputs.version }}
 
-          # Update changelog
-          npx conventional-changelog -p angular -i ./CHANGELOG.md -s
-
-      - name: Prepare git commit
+      - name: Prepare changelog and git commit
         run: |
+          npx conventional-changelog -p angular -i ./packages/${{ inputs.package }}/CHANGELOG.md -s --pkg ./packages/${{ inputs.package }}/package.json --commit-path ./packages/${{ inputs.package }}/
+
           git add .
 
           # Do not include .
