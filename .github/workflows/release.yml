@@ -129,19 +129,22 @@ jobs:
           pushd packages/${{ inputs.package }}
           npm version ${{ inputs.version }}
 
+          # Update changelog
+          npx conventional-changelog -p angular -i CHANGELOG.md -s
+
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
         run: |
           pushd packages/${{ inputs.package }}
           npm version ${{ inputs.version }}
 
+          # Update changelog
+          npx conventional-changelog -p angular -i CHANGELOG.md -s
+
       - name: Generate changelog
         run: |
           # Undo npm commit as we want to change the message and include the changelog
           git reset --soft HEAD~
-
-          # Update changelog
-          npx conventional-changelog -p angular -i CHANGELOG.md -s
 
           # Commit the release
           git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./package.json)"
