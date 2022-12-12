@@ -144,7 +144,7 @@ jobs:
       - name: Prepare git commit
         run: |
           # Undo npm commit as we want to change the message and include the changelog
-          git reset --soft HEAD~
+          # git reset --soft HEAD~
 
           git add .
 
