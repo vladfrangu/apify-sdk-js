@@ -127,7 +127,7 @@ jobs:
         if: inputs.version == 'custom' && inputs.custom_version != ''
         run: |
           pushd ./packages/${{ inputs.package }}
-          npm version ${{ inputs.version }}
+          npm version ${{ inputs.custom_version }}
 
           # Update changelog
           npx conventional-changelog -p angular -i ./CHANGELOG.md -s
