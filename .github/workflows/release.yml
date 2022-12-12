@@ -145,8 +145,6 @@ jobs:
 
           # Commit the release
           git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./package.json)"
-
-          popd packages/${{ inputs.package }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
