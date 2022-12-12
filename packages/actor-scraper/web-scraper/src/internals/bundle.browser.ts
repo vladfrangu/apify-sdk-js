@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 
-import type { CrawlerSetupOptions, constants, RequestMetadata } from '@apify/scraper-tools';
+import type { CrawlerSetupOptions, constants, RequestMetadata } from '@vladfrangu-dev/apify-scraper-tools';
 import { Log } from '@apify/log';
-import type { ApifyEnv } from 'apify';
+import type { ApifyEnv } from '@vladfrangu-dev/apify';
 import type {
     KeyValueStore,
     RecordOptions,

@@ -4,7 +4,7 @@ import {
     createContext,
     RequestMetadata,
     tools,
-} from '@apify/scraper-tools';
+} from '@vladfrangu-dev/apify-scraper-tools';
 import {
     AutoscaledPool,
     CheerioCrawler,
@@ -20,7 +20,7 @@ import {
     Dictionary,
     Awaitable,
 } from '@crawlee/cheerio';
-import { Actor, ApifyEnv } from 'apify';
+import { Actor, ApifyEnv } from '@vladfrangu-dev/apify';
 import { load } from 'cheerio';
 import { readFile } from 'node:fs/promises';
 import { IncomingMessage } from 'node:http';

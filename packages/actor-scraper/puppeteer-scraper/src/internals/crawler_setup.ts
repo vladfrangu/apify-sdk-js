@@ -1,5 +1,5 @@
-import { browserTools, constants as scraperToolsConstants, CrawlerSetupOptions, createContext, RequestMetadata, tools } from '@apify/scraper-tools';
-import { Actor, ApifyEnv } from 'apify';
+import { browserTools, constants as scraperToolsConstants, CrawlerSetupOptions, createContext, RequestMetadata, tools } from '@vladfrangu-dev/apify-scraper-tools';
+import { Actor, ApifyEnv } from '@vladfrangu-dev/apify';
 import {
     AutoscaledPool,
     Dataset,

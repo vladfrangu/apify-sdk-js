@@ -147,7 +147,7 @@ jobs:
           git reset --soft HEAD~
 
           # Commit the release
-          git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json)"
+          git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"

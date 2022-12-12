@@ -1,4 +1,4 @@
-import { Actor } from 'apify';
+import { Actor } from '@vladfrangu-dev/apify';
 import log from '@apify/log';
 import type { CommonPage } from '@crawlee/browser-pool';
 import { inspect } from 'node:util';

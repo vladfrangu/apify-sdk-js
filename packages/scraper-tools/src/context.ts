@@ -1,5 +1,5 @@
-import type { ApifyEnv } from 'apify';
-import { Actor } from 'apify';
+import type { ApifyEnv } from '@vladfrangu-dev/apify';
+import { Actor } from '@vladfrangu-dev/apify';
 import type {
     KeyValueStore,
     RecordOptions,

@@ -1,4 +1,4 @@
-import { Actor } from 'apify';
+import { Actor } from '@vladfrangu-dev/apify';
 import type { FinalStatistics } from '@crawlee/core';
 import log from '@apify/log';
 
