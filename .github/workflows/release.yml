@@ -126,7 +126,7 @@ jobs:
       - name: Bump version to custom version
         if: inputs.version == 'custom' && inputs.custom_version != ''
         run: |
-          pushd packages/${{ inputs.package }}
+          pushd ./packages/${{ inputs.package }}
           npm version ${{ inputs.version }}
 
           # Update changelog
@@ -135,7 +135,7 @@ jobs:
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
         run: |
-          pushd packages/${{ inputs.package }}
+          pushd ./packages/${{ inputs.package }}
           npm version ${{ inputs.version }}
 
           # Update changelog
@@ -147,7 +147,7 @@ jobs:
           git reset --soft HEAD~
 
           # Commit the release
-          git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./package.json)"
+          git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json)"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
