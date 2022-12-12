@@ -10,4 +10,4 @@ export {
 } from '@crawlee/core';
 export { ApifyClient, ApifyClientOptions } from 'apify-client';
 
-export const isA = true;
+export const isA = false;

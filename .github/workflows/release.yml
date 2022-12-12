@@ -137,6 +137,8 @@ jobs:
 
       - name: Prepare changelog and git commit
         run: |
+          git tag ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)
+
           npx conventional-changelog -p angular -i ./packages/${{ inputs.package }}/CHANGELOG.md -s --pkg ./packages/${{ inputs.package }}/package.json --commit-path ./packages/${{ inputs.package }}/
 
           git add .
