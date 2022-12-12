@@ -130,7 +130,7 @@ jobs:
           npm version ${{ inputs.custom_version }}
 
           # Update changelog
-          npx conventional-changelog -p angular -i ./CHANGELOG.md -s
+          npx conventional-changelog -p angular -i ./packages/${{ inputs.package }}/CHANGELOG.md -s
 
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
