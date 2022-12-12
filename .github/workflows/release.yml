@@ -141,10 +141,15 @@ jobs:
           # Update changelog
           npx conventional-changelog -p angular -i CHANGELOG.md -s
 
-      - name: Generate changelog
+      - name: Prepare git commit
         run: |
           # Undo npm commit as we want to change the message and include the changelog
           git reset --soft HEAD~
+
+          git add .
+
+          # Do not include .
+          git reset .npmrc
 
           # Commit the release
           git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)"
