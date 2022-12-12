@@ -9,3 +9,5 @@ export {
     KeyConsumer, KeyValueStoreOptions, RecordOptions, KeyValueStoreIteratorOptions, log, Log, LoggerOptions, LogLevel, Logger, LoggerJson, LoggerText,
 } from '@crawlee/core';
 export { ApifyClient, ApifyClientOptions } from 'apify-client';
+
+export const isA = true;
