@@ -1,3 +1,26 @@
+## 3.2.2 (2022-12-12)
+
+
+### Bug Fixes
+
+* **apify:** add `@apify/timeout` to dependencies ([#76](https://github.com/apify/apify-sdk-js/issues/76)) ([1d64a1f](https://github.com/apify/apify-sdk-js/commit/1d64a1fa8f0e88a96eb82c2669e85b09dd4f372d))
+* use correct event manager for actor methods ([#49](https://github.com/apify/apify-sdk-js/issues/49)) ([ef3a0c5](https://github.com/apify/apify-sdk-js/commit/ef3a0c54359be64c89e76b0cac600cd780281321))
+* wait for memory storage to write changes before `Actor.exit` exists the process ([c721d98](https://github.com/apify/apify-sdk-js/commit/c721d988141cf5b7aa170fddeffb792ded769622))
+
+
+### Features
+
+* add `Actor.useState()` helper ([#98](https://github.com/apify/apify-sdk-js/issues/98)) ([27dc413](https://github.com/apify/apify-sdk-js/commit/27dc4139caa0a2d94c570edac2cb628f6b3f747c))
+* add `statusMessage` to `AbortOptions` ([fb10bb6](https://github.com/apify/apify-sdk-js/commit/fb10bb60c12c0af97e41ae88adcf0b2000286235))
+* **apify:** add decryption for input secrets ([#83](https://github.com/apify/apify-sdk-js/issues/83)) ([78bb990](https://github.com/apify/apify-sdk-js/commit/78bb990817c01254de19c828937181c1263e21eb))
+* owo ([a4ba350](https://github.com/apify/apify-sdk-js/commit/a4ba3500d79481d5264a3bebe5aeccdabb326f6a))
+* re-export the logger in actor sdk ([#54](https://github.com/apify/apify-sdk-js/issues/54)) ([c78d8a4](https://github.com/apify/apify-sdk-js/commit/c78d8a44d7af5de7fda7bf2e436fefda752a4b1a))
+* update @apify/scraper-tools ([#37](https://github.com/apify/apify-sdk-js/issues/37)) ([788913e](https://github.com/apify/apify-sdk-js/commit/788913e0cc669b15b35359df30202a449b881b5f))
+* update the scrapers ([#70](https://github.com/apify/apify-sdk-js/issues/70)) ([efbfc44](https://github.com/apify/apify-sdk-js/commit/efbfc442bc8be4f07b5f2432a750cb861d7f05e8))
+* warn about actor not being initialized before using storage methods ([#126](https://github.com/apify/apify-sdk-js/issues/126)) ([91cd246](https://github.com/apify/apify-sdk-js/commit/91cd2467d111de19490a6bf47b4a9138f26a37d4))
+
+
+
 ## 3.2.1 (2022-12-12)
 
 
