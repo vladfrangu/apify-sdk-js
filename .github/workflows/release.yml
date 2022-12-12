@@ -130,7 +130,7 @@ jobs:
           npm version ${{ inputs.version }}
 
           # Update changelog
-          npx conventional-changelog -p angular -i CHANGELOG.md -s
+          npx conventional-changelog -p angular -i ./CHANGELOG.md -s
 
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
@@ -139,13 +139,10 @@ jobs:
           npm version ${{ inputs.version }}
 
           # Update changelog
-          npx conventional-changelog -p angular -i CHANGELOG.md -s
+          npx conventional-changelog -p angular -i ./CHANGELOG.md -s
 
       - name: Prepare git commit
         run: |
-          # Undo npm commit as we want to change the message and include the changelog
-          # git reset --soft HEAD~
-
           git add .
 
           # Do not include .
