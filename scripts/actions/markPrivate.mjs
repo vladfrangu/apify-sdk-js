@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 
-const [_, packageToIgnore] = process.argv;
+const [_, __, packageToIgnore] = process.argv;
 
 if (!packageToIgnore) {
 	throw new Error('Missing package provided to ignore from marking as private');
