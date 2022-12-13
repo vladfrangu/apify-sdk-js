@@ -131,13 +131,13 @@ jobs:
       - name: Bump version to custom version
         if: inputs.version == 'custom' && inputs.custom_version != ''
         run: |
-          pushd ./packages/${{ inputs.package }}
+          # pushd ./packages/${{ inputs.package }}
           npx lerna version ${{ inputs.custom_version }}
 
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
         run: |
-          pushd ./packages/${{ inputs.package }}
+          # pushd ./packages/${{ inputs.package }}
           npx lerna version ${{ inputs.version }}
 
       - name: Revert all other packages to public
