@@ -15,8 +15,12 @@ for (const pkg of packages) {
 		continue;
 	}
 
-	const pkgJsonPath = new URL(`${pkg}/package.json`, packagesDir);
-	const pkgJson = JSON.parse(await readFile(pkgJsonPath, 'utf-8'));
-	pkgJson.private = true;
-	await writeFile(pkgJsonPath, JSON.stringify(pkgJson, null, '\t'));
+	try {
+		const pkgJsonPath = new URL(`${pkg}/package.json`, packagesDir);
+		const pkgJson = JSON.parse(await readFile(pkgJsonPath, 'utf-8'));
+
+		pkgJson.private = true;
+
+		await writeFile(pkgJsonPath, JSON.stringify(pkgJson, null, '\t'));
+	} catch {}
 }
