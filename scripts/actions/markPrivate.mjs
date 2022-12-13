@@ -6,7 +6,7 @@ if (!packageToIgnore) {
 	throw new Error('Missing package provided to ignore from marking as private');
 }
 
-const packagesDir = new URL('../packages/', import.meta.url);
+const packagesDir = new URL('../../packages/', import.meta.url);
 
 const packages = await readdir(packagesDir);
 
