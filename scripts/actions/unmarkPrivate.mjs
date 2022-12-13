@@ -11,6 +11,6 @@ for (const pkg of packages) {
 
 		delete pkgJson.private;
 
-		await writeFile(pkgJsonPath, JSON.stringify(pkgJson, null, '\t'));
+		await writeFile(pkgJsonPath, JSON.stringify(pkgJson, null, 4));
 	} catch {}
 }
