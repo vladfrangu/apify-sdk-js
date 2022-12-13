@@ -124,41 +124,38 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Mark all other packages as private
-        run: |
-          jq '.private = true' ./packages/*/package.json > /dev/null
-          jq 'del(.private)' ./packages/${{ inputs.package }}/package.json > /dev/null
+        run: node ./scripts/actions/markPrivate.mjs ${{ inputs.package }}
 
       - name: Bump version to custom version
         if: inputs.version == 'custom' && inputs.custom_version != ''
         run: |
           # pushd ./packages/${{ inputs.package }}
-          npx lerna version ${{ inputs.custom_version }}
+          npx lerna version ${{ inputs.custom_version }} --no-private
 
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
         run: |
           # pushd ./packages/${{ inputs.package }}
-          npx lerna version ${{ inputs.version }}
+          npx lerna version ${{ inputs.version }} --no-private
 
       - name: Revert all other packages to public
-        run: |
-          jq 'del(.private)' ./packages/*/package.json > /dev/null
+        run: node ./scripts/actions/unmarkPrivate.mjs
 
-      - name: Prepare changelog and git commit
-        run: |
-          # git tag ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)
+      # - name: Prepare changelog and git commit
+      #   run: |
+      #     # git tag ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)
 
-          # git add .
+      #     # git add .
 
-          # Do not include .
-          # git reset .npmrc
+      #     # Do not include .
+      #     # git reset .npmrc
 
-          # Commit the release
-          # git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      #     # Commit the release
+      #     # git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)"
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
+      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Publish to NPM
         run: npm run release -- --yes --no-verify-access

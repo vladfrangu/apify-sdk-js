@@ -4,6 +4,7 @@
 		"packages/**/src/**/*.js",
 		"packages/**/src/**/*.ts",
 		"scripts/**/*.js",
+		"scripts/**/*.mjs",
 		"scripts/**/*.ts",
 		"test/**/*.js",
 		"test/**/*.ts",
