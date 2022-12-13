@@ -129,7 +129,7 @@ jobs:
       - name: Bump version to custom version
         if: inputs.version == 'custom' && inputs.custom_version != ''
         run: |
-          npx lerna version ${{ inputs.custom_version }} --no-private
+          npx lerna version ${{ inputs.custom_version }} --no-private --force-publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
@@ -138,7 +138,7 @@ jobs:
       - name: Bump version to ${{ inputs.version }} version
         if: inputs.version != 'custom'
         run: |
-          npx lerna version ${{ inputs.version }} --no-private
+          npx lerna version ${{ inputs.version }} --no-private --force-publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
