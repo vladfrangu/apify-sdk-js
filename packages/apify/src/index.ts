@@ -11,3 +11,4 @@ export {
 export { ApifyClient, ApifyClientOptions } from 'apify-client';
 
 export const isA = false;
+export const outstanding = true;
