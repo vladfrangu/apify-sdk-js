@@ -116,8 +116,8 @@ jobs:
           git config --global user.name "Apify Release Bot"
           git config --global user.email "noreply@apify.com"
 
-          echo "access=public" > .npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+          echo "access=public" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
@@ -150,9 +150,6 @@ jobs:
       - name: Add all other changes to the release commit and push
         run: |
           git add .
-
-          # Do not include .
-          git reset .npmrc
 
           git commit --amend --no-edit
           git push -f
