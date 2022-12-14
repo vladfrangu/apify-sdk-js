@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/apify/apify-sdk-js/compare/@vladfrangu-dev/apify@3.3.1...@vladfrangu-dev/apify@3.4.1) (2022-12-14)
+
+
+### Features
+
+* testing out new toys ([f9bcd3f](https://github.com/apify/apify-sdk-js/commit/f9bcd3ffa16c0526a6b3da0ede0e320aca11da21))
+
+
+
+
+
 # [3.4.0](https://github.com/apify/apify-sdk-js/compare/@vladfrangu-dev/apify@3.3.1...@vladfrangu-dev/apify@3.4.0) (2022-12-14)
 
 **Note:** Version bump only for package @vladfrangu-dev/apify
