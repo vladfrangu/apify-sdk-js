@@ -59,5 +59,6 @@
         "@crawlee/playwright": {
             "optional": true
         }
-    }
+    },
+    "private": true
 }
