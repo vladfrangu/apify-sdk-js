@@ -147,21 +147,19 @@ jobs:
       - name: Revert all other packages to public
         run: node ./scripts/actions/unmarkPrivate.mjs
 
-      # - name: Prepare changelog and git commit
-      #   run: |
-      #     # git tag ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)
+      - name: Add all other changes to the release commit and push
+        run: |
+          git add .
 
-      #     # git add .
+          # Do not include .
+          git reset .npmrc
 
-      #     # Do not include .
-      #     # git reset .npmrc
-
-      #     # Commit the release
-      #     # git commit -m "chore: release ${{ inputs.package }}@$(jq .version ./packages/${{ inputs.package }}/package.json -r)"
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
-      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          git commit --amend --no-edit
+          git push -f
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Publish to NPM
         run: npm run release -- --yes --no-verify-access
@@ -169,6 +167,3 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_USER: "noreply@apify.com:${{ secrets.GH_TOKEN }}"
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      - name: Publish to GitHub
-        run: git push && git push --tags
